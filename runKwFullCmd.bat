@@ -1,16 +1,16 @@
-set projectName=MyCppCode
+set PROJECT=MyCppCode
 set SVRLOC=192.168.65.129
 REM set SVRLOC=localhost
 
+REM *** 1. Clean up all SCA artifacts *****	
+rd /s/q kwtables
+rm kwinject.out
 
-REM *** 1. We should already have CHESS project on Klocwork Server
-make clean
+REM *** 2. Monitor and Capturing the BuildSpec informatio
+kwinject make clean all
 
-REM *** 2. Normal build, since we already have CHESS.out file from initial creation
-kwinject make  all
+REM *** 3. Run Build and SCA on project, reference to KW-Portal project, based on buildspec, and produce DB tables for output.
+kwbuildproject --url http://%SVRLOC%:8080/%PROJECT% -o kwtables kwinject.out --force --replace-path %CD%=%PROJECT%
 
-REM *** 3. Next Force a full Analysis
-kwbuildproject --url http://%SVRLOC%:8080/%projectName% -o kwtables kwinject.out --force --replace-path %CD%=%projectName%
-
-REM *** 4. we load our result with kwadmin and load to the Klocwork Server
-REM kwadmin --url http://localhost:8080 load %projectName%  kwtables
+REM *** 4. Then Load the Results to the KW-Server Project Container
+kwadmin --url http://%SVRLOC%:8080 load %PROJECT%  kwtables --name JCI_kw19v2_%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%_%TIME:~3,2%%TIME:~6,2%
