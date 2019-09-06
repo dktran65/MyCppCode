@@ -2,6 +2,7 @@ set projectName=MyCppCode
 set SVRLOC=192.168.65.129
 REM set SVRLOC=localhost
 
+
 REM *** 1. We should already have CHESS project on Klocwork Server
 make clean
 
