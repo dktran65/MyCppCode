@@ -13,4 +13,4 @@ REM *** 3. Run Build and SCA on project, reference to KW-Portal project, based o
 kwbuildproject --url http://%SVRLOC%:8080/%PROJECT% -o kwtables kwinject.out --force --replace-path %CD%=%PROJECT%
 
 REM *** 4. Then Load the Results to the KW-Server Project Container
-kwadmin --url http://%SVRLOC%:8080 load %PROJECT%  kwtables --name JCI_kw19v2_%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%_%TIME:~3,2%%TIME:~6,2%
+kwadmin --url http://%SVRLOC%:8080 load %PROJECT%  kwtables --name JCI30_kw19v2_%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%_%TIME:~3,2%%TIME:~6,2%
