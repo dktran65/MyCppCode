@@ -1,5 +1,5 @@
 Ps#!/bin/bash
-PROJPATH=/home/vmdemo/AAASanboxProjects/MyCppCode
+PROJPATH=$PWD
 PROJNAME=MyCppCode
 # SVRLOC=192.168.65.129
 SVRLOC=localhost
