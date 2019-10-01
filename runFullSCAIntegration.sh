@@ -15,4 +15,4 @@ kwinject --overwrite make clean all
 kwbuildproject --url http://$SVRLOC:8080/$PROJNAME -o kwtables kwinject.out --force -replace-path $PWD=$PROJNAME
 
 # *** 4. Then Load the Results to the KW-Server Project Container
-kwadmin --url http://$SVRLOC:8080 load $PROJNAME kwtables --name IP60_Kw19v2
+kwadmin --url http://$SVRLOC:8080 load $PROJNAME kwtables
