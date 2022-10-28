@@ -22,6 +22,9 @@ void foo() {
 	s3.mf("World");
 }
 int main() {
+	int aBV[3] = {1,2,3};
+	
+	aBV[4] = 5;
 	foo();
 	return(0);
 }
